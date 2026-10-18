@@ -10,6 +10,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
   - Dependencies: None
   - Files: `package.json`, `tsconfig.json`, `src/config/env.ts`, `src/app/api/health/route.ts`, `src/app/error.tsx`
   - Scope: M (3–5 files)
+  - **STATUS: DONE 2026-10-18** — Next.js 16.4.2, 6 tests green, all gates clean. See `PROGRESS.md`. Deviations: scaffold created `app/` subdirectory (create-next-app constraint); base-component showcase route belongs to Task 2.
 
 - [ ] **Task 2: Design tokens + base UI components**
   - Acceptance: Tailwind config carries CSS-variable tokens (colors, spacing, type scale, radii); `Button`, `Input`, `Card`, `Avatar`, `Badge`, `Alert`, `Modal`, `Toast` exist in `src/components/base/` with tests; internal `/dev/components` showcase route renders all of them (noindex).
