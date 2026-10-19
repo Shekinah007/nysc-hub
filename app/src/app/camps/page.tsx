@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import { Card } from '@/components/base/Card'
 import { CampStatusBadge } from '@/components/camps/CampStatusBadge'
 import { getCamps, listCampStates } from '@/server/camps/queries'
+import { requestTime } from '@/lib/dynamic'
 
 export const metadata: Metadata = {
   title: 'NYSC Orientation Camps | NYSC-Hub',
@@ -61,6 +62,9 @@ export async function CampDirectory({
   searchParams: Promise<{ state?: string; q?: string }>
 }) {
   const { state, q } = await searchParams
+  // Request-time: the Mongo driver calls Date.now() internally while
+  // connecting, which Cache Components treats as an unstable prerender value.
+  await requestTime()
   const [camps, states] = await Promise.all([
     getCamps({ state, search: q }),
     listCampStates(),

@@ -43,6 +43,8 @@ export async function dbConnect(): Promise<typeof mongoose> {
       maxPoolSize: 10,
       serverSelectionTimeoutMS: 10000,
     }
+    // Any rejection resets the promise so the next call retries instead of
+    // hanging on a failed connection (serverless cold starts).
     cache.promise = mongoose.connect(getUri(), opts).then((m) => m)
   }
 

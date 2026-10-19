@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 import { Card } from '@/components/base/Card'
 import { CampStatusBadge } from '@/components/camps/CampStatusBadge'
 import { getCampBySlug, mapsUrl } from '@/server/camps/queries'
+import { requestTime } from '@/lib/dynamic'
 
 type Params = Promise<{ slug: string }>
 
@@ -66,6 +67,9 @@ function ProfileSkeleton() {
 
 export async function CampProfile({ params }: { params: Params }) {
   const { slug } = await params
+  // Request-time: the Mongo driver calls Date.now() internally while
+  // connecting, which Cache Components treats as an unstable prerender value.
+  await requestTime()
   const camp = await getCampBySlug(slug)
   if (!camp) {
     notFound()

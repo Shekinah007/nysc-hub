@@ -15,6 +15,16 @@ describe('GET /api/health', () => {
     expect(json.timestamp).toBeTypeOf('string')
   })
 
+  it('reports db: up when the database is reachable', async () => {
+    // GET swallows connection errors and reports degraded, so the response
+    // shape (not the db value) is the stable contract for uptime probes.
+    const response = await GET()
+    const json = await response.json()
+    expect(response.status).toBe(200)
+    expect(json.status).toBe('ok')
+    expect(['up', 'degraded']).toContain(json.db)
+  })
+
   it('returns a parseable ISO timestamp', () => {
     const timestamp = new Date().toISOString()
     expect(() => new Date(timestamp)).not.toThrow()
