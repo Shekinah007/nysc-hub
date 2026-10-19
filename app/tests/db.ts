@@ -21,6 +21,13 @@ export async function connectTestDb() {
     maxPoolSize: 10,
     serverSelectionTimeoutMS: 10000,
   })
+
+  // Mongoose builds indexes asynchronously after connect. Without waiting,
+  // the first documents can be inserted before unique indexes exist, so
+  // duplicate-key errors are missed (flaky unique-index tests).
+  await Promise.all(
+    Object.values(mongoose.connection.models).map((m) => m.init()),
+  )
 }
 
 export async function clearTestDb() {
