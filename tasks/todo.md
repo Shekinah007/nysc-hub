@@ -69,7 +69,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
 
 - [ ] **Task 9: Guards + login rate limit + audit**
   - Acceptance: `requireUser()` / `requirePlatformAdmin()` guards in `src/lib/auth-guards.ts`; every `platformAdmin` or `deactivated` change writes an `AuditEntry` in the same operation; 5 failed logins in 15 min trigger a 10-min lock.
-  - Verify: guard-matrix test (anonymous / user / admin → 401/403/200); lockout triggers on the 5th failure.
+  - **STATUS: DONE 2026-10-19** — requireUser/requirePlatformAdmin/requireSelfOrPlatformAdmin (guards re-read user from DB, so revoked admins are blocked immediately); non-admin 403 writes admin.access-denied audit entry; login lockout 5/15min→10min lock with TTL-expiring records; withAudit probes real topology (transaction when replica set, honest sequential write otherwise). 15-test guard matrix green.
   - Dependencies: Task 6
   - Files: `src/lib/auth-guards.ts`, `src/lib/rate-limit.ts`, `src/lib/audit.ts`
   - Scope: M
