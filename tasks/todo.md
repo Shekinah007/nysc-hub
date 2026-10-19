@@ -34,7 +34,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
 
 - [ ] **Task 4: Mongoose connection + test harness + core identity models**
   - Acceptance: `src/lib/db.ts` connects from env; mongodb-memory-server harness in `tests/setup.ts`; `User` (incl. `lifecycleStage`, `platformAdmin`, `deactivated`), `EmailToken`, `AuditEntry` models live in `src/models/identity/`; schema-shape test asserts **no NYSC identity fields exist** on User.
-  - Verify: `npm run test -- identity` passes; model tests run against in-memory Mongo.
+  - **STATUS: DONE 2026-10-19** — mongoose 8 + mongodb-memory-server 11.3; `src/lib/db.ts` singleton with lazy URI; `tests/db.ts` opt-in harness (component tests unaffected); User/EmailToken/AuditEntry models; 64 tests green across 11 files; schema-shape test guards the permanent no-NYSC-identity constraint.
   - Dependencies: Task 1
   - Files: `src/lib/db.ts`, `tests/setup.ts`, `src/models/identity/*.ts`
   - Scope: M
