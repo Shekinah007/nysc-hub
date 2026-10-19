@@ -129,6 +129,7 @@ describe('EmailToken model', () => {
     const token = await EmailToken.create({
       userId: user._id,
       tokenHash: 'hash-value',
+      targetEmail: 'user@example.com',
       purpose: 'verify-email',
       expiresAt: new Date(Date.now() + 15 * 60 * 1000),
     })
@@ -142,6 +143,7 @@ describe('EmailToken model', () => {
     await EmailToken.create({
       userId: new mongoose.Types.ObjectId(),
       tokenHash: 'duplicate-hash',
+      targetEmail: 'user@example.com',
       purpose: 'password-reset',
       expiresAt: new Date(),
     })
@@ -149,6 +151,7 @@ describe('EmailToken model', () => {
       EmailToken.create({
         userId: new mongoose.Types.ObjectId(),
         tokenHash: 'duplicate-hash',
+      targetEmail: 'user@example.com',
         purpose: 'verify-email',
         expiresAt: new Date(),
       }),

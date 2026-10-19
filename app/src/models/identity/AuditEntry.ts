@@ -10,6 +10,8 @@ import mongoose, { type Document, type Model, Schema, model } from 'mongoose'
  */
 export type AuditAction =
   | 'user.register'
+  | 'user.verify-email'
+  | 'user.password-reset'
   | 'user.deactivate'
   | 'user.reactivate'
   | 'user.grant-platform-admin'
