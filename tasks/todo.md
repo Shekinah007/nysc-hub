@@ -13,7 +13,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
   - **STATUS: DONE 2026-10-18** — Next.js 16.4.2, 6 tests green, all gates clean. See `PROGRESS.md`. Deviations: scaffold created `app/` subdirectory (create-next-app constraint); base-component showcase route belongs to Task 2.
 
 - [ ] **Task 2: Design tokens + base UI components**
-  - Acceptance: Tailwind config carries CSS-variable tokens (colors, spacing, type scale, radii); `Button`, `Input`, `Card`, `Avatar`, `Badge`, `Alert`, `Modal`, `Toast` exist in `src/components/base/` with tests; internal `/dev/components` showcase route renders all of them (noindex).
+  - **STATUS: DONE 2026-10-19** — 8 components (Button, Input, Card, Avatar, Badge, Alert, Modal, Toast) + `cn()` util + token CSS; 54 tests green across 10 files; `/dev/components` showcase renders all of them (noindex); all four gates clean.
   - Verify: `npm run test -- components` passes; showcase route renders in dev; mobile-first at 360px.
   - Dependencies: Task 1
   - Files: `tailwind.config.ts`, `src/components/base/*.tsx`, `src/app/dev/components/page.tsx`
