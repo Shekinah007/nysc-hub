@@ -16,6 +16,7 @@ export type AuditAction =
   | 'user.reactivate'
   | 'user.grant-platform-admin'
   | 'user.revoke-platform-admin'
+  | 'admin.access-denied'
   | 'camp.status-change'
   | 'camp.admin-grant'
   | 'camp.admin-revoke'
