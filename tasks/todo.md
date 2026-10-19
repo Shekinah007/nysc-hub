@@ -21,7 +21,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
 
 - [ ] **Task 3: CI + Vercel deploy pipeline**
   - Acceptance: GitHub Actions workflow runs typecheck + lint + test on every PR; Vercel project connected, preview deploys per PR, production on `main`; README documents commands.
-  - Verify: first PR is green and produces a preview URL.
+  - **STATUS: DONE 2026-10-19** — GitHub repo https://github.com/Shekinah007/nysc-hub (default branch `main`); CI workflow green on push (typecheck + lint + test, `working-directory: app`); Vercel project `aeon-s-projects/nysc-hub` linked via `vercel link --repo`, root directory `app`; production deploy verified READY at https://nysc-hub-tau.vercel.app; `MONGODB_URI` + `NEXTAUTH_SECRET` set sensitive across all 3 environments. `vercel.json` committed at `app/vercel.json`.
   - Dependencies: Task 1
   - Files: `.github/workflows/ci.yml`, `vercel.json`, `README.md`
   - Scope: S
