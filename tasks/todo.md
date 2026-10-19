@@ -41,7 +41,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
 
 - [ ] **Task 5: Registration + email verification**
   - Acceptance: `POST /api/auth/register` creates an unverified user (bcryptjs, cost ≥12) and sends a signed token email; `POST /api/auth/verify-email` marks the account verified; `/register` and `/verify-email` pages wired; tokens are hashed at rest, expire in 15 min, single-use.
-  - Verify: integration test runs the full flow; dev console sender logs the link; expired and reused tokens rejected.
+  - **STATUS: PARTIAL 2026-10-19** — Server actions complete and verified (registerUser, verifyEmail, resendVerification, requestPasswordReset, resetPassword; 29 identity tests green). API routes + UI pages (Task 5 files listed) still pending — carry into the next session alongside Task 6.
   - Dependencies: Task 4; **email sending domain decided here**
   - Files: `src/app/(auth)/register/page.tsx`, `src/app/api/auth/register/route.ts`, `src/lib/email.ts`, `src/models/identity/EmailToken.ts`
   - Scope: M
