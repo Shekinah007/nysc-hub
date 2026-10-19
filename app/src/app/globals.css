@@ -1,26 +1,103 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+/**
+ * NYSC-Hub design tokens — single source of truth.
+ *
+ * Structure (Tailwind v4):
+ *   - `:root` defines semantic vars as plain CSS custom properties (--token-*).
+ *   - `@theme inline` maps Tailwind's --color-* names onto those vars. `inline`
+ *     keeps the var reference rather than inlining the value, so the dark-mode
+ *     overrides below actually take effect at runtime.
+ *   Names deliberately differ (--token-* vs --color-*) to avoid self-reference.
+ *   Docs: https://tailwindcss.com/docs/theme
+ *
+ * Palette: deep green primary (NYSC association) + warm amber accent,
+ * chosen for an energetic-but-trustworthy feel. Nothing hardcodes hex
+ * outside this file.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --token-primary: #0f6b3d;
+  --token-primary-strong: #0a4f2c;
+  --token-primary-soft: #e6f4ec;
+  --token-accent: #f59e0b;
+  --token-accent-soft: #fef3c7;
+
+  /* Neutrals */
+  --token-background: #ffffff;
+  --token-surface: #f8faf9;
+  --token-foreground: #101d17;
+  --token-muted: #5b6b62;
+  --token-border: #dbe4de;
+
+  /* Feedback */
+  --token-success: #15803d;
+  --token-success-soft: #dcfce7;
+  --token-warning: #b45309;
+  --token-warning-soft: #fef3c7;
+  --token-danger: #b91c1c;
+  --token-danger-soft: #fee2e2;
+  --token-info: #1d4ed8;
+  --token-info-soft: #dbeafe;
+
+  /* Radii */
+  --token-radius-sm: 0.25rem;
+  --token-radius-md: 0.5rem;
+  --token-radius-lg: 0.75rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--token-background);
+  --color-surface: var(--token-surface);
+  --color-foreground: var(--token-foreground);
+  --color-muted: var(--token-muted);
+  --color-border: var(--token-border);
+  --color-primary: var(--token-primary);
+  --color-primary-strong: var(--token-primary-strong);
+  --color-primary-soft: var(--token-primary-soft);
+  --color-accent: var(--token-accent);
+  --color-accent-soft: var(--token-accent-soft);
+  --color-success: var(--token-success);
+  --color-success-soft: var(--token-success-soft);
+  --color-warning: var(--token-warning);
+  --color-warning-soft: var(--token-warning-soft);
+  --color-danger: var(--token-danger);
+  --color-danger-soft: var(--token-danger-soft);
+  --color-info: var(--token-info);
+  --color-info-soft: var(--token-info-soft);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --radius-sm: var(--token-radius-sm);
+  --radius-md: var(--token-radius-md);
+  --radius-lg: var(--token-radius-lg);
+
+  /* Base spacing scale: utilities like p-4 resolve to 1rem. */
+  --spacing: 0.25rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --token-background: #0c1310;
+    --token-surface: #111b16;
+    --token-foreground: #e8f0ea;
+    --token-muted: #93a59a;
+    --token-border: #223529;
+    --token-primary: #34d399;
+    --token-primary-strong: #6ee7b7;
+    --token-primary-soft: #11301f;
+    --token-accent: #fbbf24;
+    --token-accent-soft: #3c2f0e;
+    --token-success-soft: #11331f;
+    --token-warning-soft: #3a2a0d;
+    --token-danger-soft: #3a1313;
+    --token-info-soft: #12244a;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--token-background);
+  color: var(--token-foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
