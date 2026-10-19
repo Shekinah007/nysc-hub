@@ -83,7 +83,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
 
 - [ ] **Task 11: Camp directory research (37 camps, cited)**
   - Acceptance: A data file or doc lists all 36 state camps + FCT with name, state, address, and a public source for each; nothing invented. Coordinates where easily sourced.
-  - Verify: Shekinah reviews the sources before seeding; spot-check of 5 camps passes.
+  - **STATUS: DONE 2026-10-19** — sources in `scripts/camp-data.ts` (mirror at `app/src/data/camps/camps.seed.ts`); primary source is the official NYSC camps page via Wayback capture 2026-10-19, cross-referenced with NYSC Mobilization (2026-08-20) plus recent news (TVC News, Jos South LGA, Invisible Insider, mynysc.ng) for temporary relocations. **Awaiting Shekinah spot-check before seeding into the DB (Task 12).**
   - Dependencies: None (research; can run during Phase 1)
   - Files: `scripts/camp-data.ts` (or a research doc feeding it)
   - Scope: M
