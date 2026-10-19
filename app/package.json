@@ -11,12 +11,14 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@auth/core": "^0.41.3",
     "@types/bcryptjs": "^2.4.6",
     "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
     "mongodb-memory-server": "^11.3.0",
     "mongoose": "^9.11.2",
     "next": "16.4.2",
+    "next-auth": "^5.0.0-beta.32",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "tailwind-merge": "^3.7.0",
