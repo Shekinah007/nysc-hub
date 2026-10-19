@@ -15,6 +15,9 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     include: ['tests/**/*.test.{ts,tsx}', 'src/**/*.test.{ts,tsx}'],
+    // MongoMemoryServer downloads its binary on first run, which can exceed
+    // the default 10s hook timeout on a slow connection.
+    hookTimeout: 120_000,
   },
   resolve: {
     alias: {
