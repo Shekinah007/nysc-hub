@@ -95,7 +95,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
   - Files: `src/models/camps/*.ts`, `scripts/seed-camps.ts`
   - Scope: M
 
-- [ ] **Task 13: Public camp pages**
+- [x] **Task 13: Public camp pages** — DONE 2026-10-19
   - Acceptance: `/camps` (list, state filter, search) and `/camps/[slug]` (profile: address, travel info, contact, status badge — **Community-managed / Claimed by camp crew (unofficial) / Authorized by camp official**) render for anonymous users; `GET /api/camps` + `/api/camps/[slug]` work.
   - Verify: pages render for anonymous users; SEO meta present; unique slugs enforced in tests.
   - Dependencies: Task 12
