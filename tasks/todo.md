@@ -88,9 +88,9 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
   - Files: `scripts/camp-data.ts` (or a research doc feeding it)
   - Scope: M
 
-- [ ] **Task 12: Camp models + seed script**
+- [x] **Task 12: Camp models + seed script** — DONE 2026-10-19
   - Acceptance: `Camp`, `CampClaimRequest`, `CampAdmin`, `CampDepartment` models in `src/models/camps/`; `scripts/seed-camps.ts` idempotently upserts the 37 camps with unique slugs/stateCodes and the default department set (unofficial status); status transitions and admin grants write audit entries.
-  - Verify: run seed twice → exactly 37 records, no duplicates; model tests pass.
+  - **Verified:** smoke-seed.ts ran the REAL script twice against in-memory Mongo: run 1 = 37 camps + 370 departments, run 2 = 0 new records; FCT slug = fct-abuja; 0 duplicate slugs. Claim-state preservation test proves the seed never overwrites status/claimedBy. 116/116 tests.
   - Dependencies: Task 4, Task 11
   - Files: `src/models/camps/*.ts`, `scripts/seed-camps.ts`
   - Scope: M
