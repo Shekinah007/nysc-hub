@@ -15,6 +15,11 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     include: ['tests/**/*.test.{ts,tsx}', 'src/**/*.test.{ts,tsx}'],
+    // MongoMemoryServer: every DB-backed test file spawns its own server in
+    // its own worker (457MB each). Ten concurrent servers OOM each other
+    // ("Instance closed unexpectedly"), so run the files one at a time.
+    // Total wall time is comparable and CI is stable.
+    fileParallelism: false,
     // MongoMemoryServer downloads its binary on first run, which can exceed
     // the default 10s hook timeout on a slow connection.
     hookTimeout: 120_000,
