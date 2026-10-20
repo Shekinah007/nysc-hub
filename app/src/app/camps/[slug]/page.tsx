@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 
 import { Card } from '@/components/base/Card'
 import { CampStatusBadge } from '@/components/camps/CampStatusBadge'
+import { ClaimRequestForm } from '@/components/camps/ClaimRequestForm'
 import { getCampBySlug, mapsUrl } from '@/server/camps/queries'
 import { requestTime } from '@/lib/dynamic'
 
@@ -133,6 +134,18 @@ export async function CampProfile({ params }: { params: Params }) {
           </Card.Content>
         </Card>
       )}
+
+      <Card>
+        <Card.Header title="Run this camp workspace" />
+        <Card.Content>
+          <p className="mb-3 text-sm text-muted">
+            On a camp crew? Request to run this camp&apos;s announcements,
+            boards, and schedules. Requests are reviewed by the NYSC-Hub
+            team — never auto-approved.
+          </p>
+          <ClaimRequestForm campSlug={camp.slug} />
+        </Card.Content>
+      </Card>
 
       <p className="text-xs text-muted">
         Address and coordinates sourced from NYSC&apos;s official camps

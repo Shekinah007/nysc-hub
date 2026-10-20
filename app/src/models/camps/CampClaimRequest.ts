@@ -24,8 +24,8 @@ export interface CampClaimRequestDoc extends Document {
 
 const campClaimRequestSchema = new Schema<CampClaimRequestDoc>(
   {
-    campId: { type: Schema.Types.ObjectId, required: true, index: true },
-    requesterId: { type: Schema.Types.ObjectId, required: true, index: true },
+    campId: { type: Schema.Types.ObjectId, required: true, index: true, ref: 'Camp' },
+    requesterId: { type: Schema.Types.ObjectId, required: true, index: true, ref: 'User' },
     message: { type: String, required: true },
     status: {
       type: String,
