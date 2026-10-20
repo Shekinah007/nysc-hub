@@ -115,7 +115,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
 
 ## Phase 3 — Info hub + community + verification
 
-- [ ] **Task 15: InfoArticle model + admin markdown editor**
+- [x] **Task 15: InfoArticle model + admin markdown editor** — DONE 2026-10-20
   - Acceptance: `InfoArticle` model (slug, category, body, tags, campIds, sources, status, publishedAt, reviewedAt); `/admin/info` editor with live markdown preview, publish/unpublish, category + camp tagging; markdown render is sanitized.
   - Verify: CRUD tests pass; `<script>` in body does not survive render (**confirm the launch article list here**).
   - Dependencies: Task 9, Task 12
