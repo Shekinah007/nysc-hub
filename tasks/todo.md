@@ -102,7 +102,7 @@ Derived from `tasks/plan.md` and the approved `SPEC-*.md`. Check off as complete
   - Files: `src/app/camps/page.tsx`, `src/app/camps/[slug]/page.tsx`, `src/app/api/camps/route.ts`
   - Scope: M
 
-- [ ] **Task 14: Claim requests + admin review**
+- [x] **Task 14: Claim requests + admin review** — DONE 2026-10-20
   - Acceptance: any email-verified user can `POST /api/camps/[slug]/claim-request`; `/admin/claim-requests` review queue lets the platform owner approve (→ `CampAdmin` grant, camp → `claimed`, audited) or deny (recorded); grants are revocable.
   - Verify: full flow tested including deny path and revocation; non-admin mutations get 403 + audit.
   - Dependencies: Task 9, Task 12
